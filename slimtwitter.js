@@ -7,10 +7,16 @@ var argv = require('optimist')
   .options('track', {
     desc: 'The word to track on the public twitter stream'
   })
+  .options('redishost', {
+    desc: 'The redis host'
+  })
+  .options('redisport', {
+    desc: 'The redis host'
+  })
   .argv;
 
 
-var client = redis.createClient();
+var client = redis.createClient(argv.redisport, argv.redishost, {});
 
 var t = new twitter({
     consumer_key: credentials.consumer_key,
