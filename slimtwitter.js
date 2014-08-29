@@ -10,7 +10,7 @@ var argv = require('optimist')
   .argv;
 
 
-var client = redis.createClient();
+var client = redis.createClient(6379, 'Redis', {});
 
 var t = new twitter({
     consumer_key: credentials.consumer_key,
